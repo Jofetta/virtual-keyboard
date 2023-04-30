@@ -30,6 +30,8 @@ keyboardHolder.appendChild(keyRow);
 keyRows.forEach(row => {
 let keyBox = document.createElement('div');
 keyBox.className = 'key';
+if (row.tag === 'special'){
+keyBox.className = 'key special'}
 keyBox.innerText = row.eng;
 keyRow.appendChild(keyBox);
 })
@@ -37,3 +39,16 @@ keyRow.appendChild(keyBox);
 })
 
 keyboardHolder.lastElementChild.childNodes[3].className = 'key extended';
+
+
+let textAreaText = '';
+
+keyboardHolder.addEventListener('click', e => {
+if (e.target.className === 'key'){
+if (e.target.className !== 'key special'){
+textAreaText += e.target.innerText;
+textarea.innerText = textAreaText;
+}
+}
+})
+

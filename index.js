@@ -44,11 +44,21 @@ keyboardHolder.lastElementChild.childNodes[3].className = 'key extended';
 let textAreaText = '';
 
 keyboardHolder.addEventListener('click', e => {
-if (e.target.className === 'key'){
-if (e.target.className !== 'key special'){
+
+if (e.target.className === 'key' && e.target.className !== 'key special'){
 textAreaText += e.target.innerText;
+} else if (e.target.className === 'key extended'){
+textAreaText += ' ';
+} else if (e.target.className === 'key special'){
+if (e.target.innerText === 'Tab'){
+textAreaText += '    ';
+} else if (e.target.innerText === 'Backspace'){
+textAreaText = textAreaText.slice(0, -1)
+} 
+}
 textarea.innerText = textAreaText;
-}
-}
+})
+document.addEventListener('keyup', function(e){
+console.log(e.code);
 })
 

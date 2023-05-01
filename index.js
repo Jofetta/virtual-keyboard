@@ -45,20 +45,29 @@ keyboardHolder.lastElementChild.childNodes[3].className = 'key extended';
 let textAreaText = '';
 
 keyboardHolder.addEventListener('click', e => {
-
-if (e.target.className === 'key' && e.target.className !== 'key special'){
+if (e.target.classList.contains('key')){
+e.target.classList.add('key-active');
+e.target.addEventListener('animationend', () => {
+e.target.classList.remove('key-active');
+});
+if (e.target.classList.contains('extended')){
+console.log(e.target);
+textAreaText = textAreaText + ' ';
+};
+if (!e.target.classList.contains('special')){
 textAreaText += e.target.innerText;
-} else if (e.target.className === 'key extended'){
-textAreaText += ' ';
-} else if (e.target.className === 'key special'){
+} else if (e.target.classList.contains('special')){
 if (e.target.innerText === 'Tab'){
 textAreaText += '    ';
 } else if (e.target.innerText === 'Backspace'){
 textAreaText = textAreaText.slice(0, -1)
-} 
+};
+}
 }
 textarea.innerText = textAreaText;
-})
+});
+
+
 document.addEventListener('keydown', function(e){
 let keyBoxActive = document.getElementById(`${e.code}`);
 keyBoxActive.classList.add('key-active');

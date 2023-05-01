@@ -30,6 +30,7 @@ keyboardHolder.appendChild(keyRow);
 keyRows.forEach(row => {
 let keyBox = document.createElement('div');
 keyBox.className = 'key';
+keyBox.id = row.keycode;
 if (row.tag === 'special'){
 keyBox.className = 'key special'}
 keyBox.innerText = row.eng;
@@ -58,7 +59,11 @@ textAreaText = textAreaText.slice(0, -1)
 }
 textarea.innerText = textAreaText;
 })
-document.addEventListener('keyup', function(e){
-console.log(e.code);
+document.addEventListener('keydown', function(e){
+let keyBoxActive = document.getElementById(`${e.code}`);
+keyBoxActive.classList.add('key-active');
+keyBoxActive.addEventListener('animationend', () => {
+keyBoxActive.classList.remove('key-active');
+}) 
 })
 

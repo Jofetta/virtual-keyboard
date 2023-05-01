@@ -52,3 +52,23 @@ flex-grow: 1;
 .extended {
 flex-grow: 10;
 }
+
+@keyframes activeKey {
+
+from {
+background-color: grey;
+}
+50% {
+background-color: darkblue;
+}
+to {
+background-color: grey;
+}
+  
+}
+
+
+.key-active {
+animation-name: activeKey;
+animation-duration: 0.5s;
+}

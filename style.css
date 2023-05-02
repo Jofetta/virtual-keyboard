@@ -1,0 +1,79 @@
+body {
+margin: 0;
+padding: 0;
+}
+
+.container {
+width: 80vw;
+height: 100vh;
+margin: 0 auto;
+}
+
+.heading {
+text-align: center;
+padding: 20px;
+}
+
+.textarea {
+width: 100%;
+box-sizing: border-box;
+padding: 10px;
+border: 0.1em solid black;
+border-radius: 10px;
+cursor: text;
+}
+
+.keyboard {
+width: 100%;
+height: 250px;
+border: 0.1em solid black;
+background-color: darkgray;
+border-radius: 10px;
+margin: 20px auto;
+}
+
+.key-row {
+display: flex;
+
+}
+
+.key {
+min-width: 40px;
+height: 40px;
+background-color: #282A3A;
+box-shadow: 2px 2px 2px grey;
+border-radius: 10px;
+margin: 5px;
+color: white;
+transition: all 0.5s ease-in-out;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-grow: 1;
+}
+
+.extended {
+flex-grow: 10;
+}
+
+@keyframes keydown {
+
+from {
+background-color: #282A3A;
+box-shadow: 2px 2px 2px grey;;
+}
+
+to {
+background-color: #301E67;
+box-shadow: none;
+}
+  
+}
+
+
+.key-active {
+animation-name: keydown;
+animation-duration: 0.5s;
+background-color: #301E67;
+box-shadow: none;
+}

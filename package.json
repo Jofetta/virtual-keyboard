@@ -1,0 +1,22 @@
+{
+  "name": "virtual-keyboard",
+  "version": "1.0.0",
+  "description": "Virtual keyboard task RS School",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jofetta/virtual-keyboard.git"
+  },
+  "author": "Tatiana Jafarova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jofetta/virtual-keyboard/issues"
+  },
+  "homepage": "https://github.com/Jofetta/virtual-keyboard#readme",
+  "devDependencies": {
+    "eslint": "^8.39.0"
+  }
+}

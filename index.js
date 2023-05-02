@@ -47,6 +47,11 @@ keyboardHolder.lastElementChild.childNodes[3].className = 'key extended';
 
 createKeys();
 
+const comment = document.createElement('div');
+comment.innerHTML = 'Клавиатура создана в операционной системе Windows.<br>Для переключения языка комбинация: ctrl + alt';
+comment.className = 'comment';
+container.appendChild(comment);
+
 
 
 
@@ -117,3 +122,14 @@ changeLanguage();
 });
 };
 });
+
+
+window.addEventListener('beforeunload', () => {
+localStorage.setItem('lang', `${language}`);
+})
+
+window.addEventListener('load', () => {
+if (localStorage.getItem('lang')){
+language = localStorage.getItem('lang');
+createKeys();
+}})
